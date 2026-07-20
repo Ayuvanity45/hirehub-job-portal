@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Post Job | HireHub
+
+</title>
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<style>
+
+body{
+
+background:#f8fafc;
+
+}
+
+.post-layout{
+
+display:grid;
+
+grid-template-columns:2fr 1fr;
+
+gap:30px;
+
+align-items:start;
+
+}
+
+.post-card{
+
+background:white;
+
+padding:35px;
+
+border-radius:22px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.preview-card{
+
+position:sticky;
+
+top:95px;
+
+background:white;
+
+padding:30px;
+
+border-radius:22px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.hero{
+
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+padding:40px;
+
+border-radius:24px;
+
+color:white;
+
+margin-bottom:30px;
+
+}
+
+.hero h1{
+
+margin:0 0 10px;
+
+font-size:38px;
+
+}
+
+.hero p{
+
+opacity:.9;
+
+margin:0;
+
+}
+
+.section-title{
+
+font-size:22px;
+
+margin-bottom:20px;
+
+color:#0f172a;
+
+}
+
+.form-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:20px;
+
+}
+
+.input-group{
+
+margin-bottom:20px;
+
+}
+
+.input-group label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+}
+
+.input-group input,
+
+.input-group textarea,
+
+.input-group select{
+
+width:100%;
+
+padding:14px;
+
+border:1px solid #cbd5e1;
+
+border-radius:12px;
+
+font-size:15px;
+
+}
+
+.input-group textarea{
+
+min-height:170px;
+
+resize:vertical;
+
+}
+
+.publish-btn{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:12px;
+
+background:#2563eb;
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.publish-btn:hover{
+
+background:#1d4ed8;
+
+}
+
+.preview-title{
+
+font-size:24px;
+
+font-weight:700;
+
+margin-bottom:10px;
+
+}
+
+.preview-company{
+
+color:#2563eb;
+
+font-weight:600;
+
+margin-bottom:15px;
+
+}
+
+.preview-meta{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:10px;
+
+margin-bottom:15px;
+
+}
+
+.meta{
+
+background:#eff6ff;
+
+padding:8px 12px;
+
+border-radius:20px;
+
+font-size:13px;
+
+font-weight:600;
+
+color:#2563eb;
+
+}
+
+.preview-description{
+
+color:#64748b;
+
+line-height:1.7;
+
+}
+
+@media(max-width:900px){
+
+.post-layout{
+
+grid-template-columns:1fr;
+
+}
+
+.preview-card{
+
+position:static;
+
+}
+
+.form-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<div class="page">
+
+<div class="container">
+
+<div class="hero">
+
+<h1>
+
+Create a New Job Posting
+
+</h1>
+
+<p>
+
+Publish a professional job listing and start receiving applications instantly.
+
+</p>
+
+</div>
+
+<div class="post-layout">
+
+<div class="post-card">
+
+<div id="alert-box"></div>
+
+<form id="job-form">
+
+<h2 class="section-title">
+
+Job Information
+
+</h2>
+
+<div class="input-group">
+
+<label>
+
+Job Title
+
+</label>
+
+<input
+type="text"
+id="title"
+placeholder="Senior Java Developer"
+required>
+
+</div>
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>
+
+Company
+
+</label>
+
+<input
+type="text"
+id="company"
+placeholder="Google"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Location
+
+</label>
+
+<input
+type="text"
+id="location"
+placeholder="Bengaluru"
+required>
+
+</div>
+
+</div>
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>
+
+Job Type
+
+</label>
+
+<select id="job_type">
+
+<option>Full-time</option>
+
+<option>Part-time</option>
+
+<option>Internship</option>
+
+<option>Contract</option>
+
+<option>Remote</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Skills
+
+</label>
+
+<input
+type="text"
+id="skills"
+placeholder="Java, Spring Boot, SQL">
+
+</div>
+
+</div>
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>
+
+Minimum Salary
+
+</label>
+
+<input
+type="number"
+id="salary_min">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Maximum Salary
+
+</label>
+
+<input
+type="number"
+id="salary_max">
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Job Description
+
+</label>
+
+<textarea
+id="description"
+placeholder="Describe responsibilities, qualifications, and benefits..."
+required></textarea>
+
+</div>
+
+<button
+type="submit"
+class="publish-btn">
+
+Publish Job
+
+</button>
+
+</form>
+
+</div>
+
+<div class="preview-card">
+
+<h3>
+
+Live Preview
+
+</h3>
+
+<div class="preview-title" id="pTitle">
+
+Senior Java Developer
+
+</div>
+
+<div class="preview-company" id="pCompany">
+
+Your Company
+
+</div>
+
+<div class="preview-meta">
+
+<div class="meta" id="pLocation">
+
+📍 Location
+
+</div>
+
+<div class="meta" id="pType">
+
+💼 Full-time
+
+</div>
+
+</div>
+
+<div
+class="salary"
+id="pSalary">
+
+Salary
+
+</div>
+
+<p
+class="preview-description"
+id="pDescription">
+
+Your job description will appear here while you type.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<script src="js/api.js"></script>
+
+<script src="js/auth.js"></script>
+
+<script>
+
+requireAuth("recruiter");
+
+const form=document.getElementById("job-form");
+
+const alertBox=document.getElementById("alert-box");
+
+/* Live Preview Elements */
+
+const pTitle=document.getElementById("pTitle");
+
+const pCompany=document.getElementById("pCompany");
+
+const pLocation=document.getElementById("pLocation");
+
+const pType=document.getElementById("pType");
+
+const pSalary=document.getElementById("pSalary");
+
+const pDescription=document.getElementById("pDescription");
+
+/* Update Live Preview */
+
+function updatePreview(){
+
+const title=document.getElementById("title").value.trim();
+
+const company=document.getElementById("company").value.trim();
+
+const location=document.getElementById("location").value.trim();
+
+const type=document.getElementById("job_type").value;
+
+const min=document.getElementById("salary_min").value;
+
+const max=document.getElementById("salary_max").value;
+
+const desc=document.getElementById("description").value.trim();
+
+pTitle.textContent=
+
+title ||
+
+"Senior Java Developer";
+
+pCompany.textContent=
+
+company ||
+
+"Your Company";
+
+pLocation.textContent=
+
+"📍 " +
+
+(location || "Location");
+
+pType.textContent=
+
+"💼 " +
+
+type;
+
+if(min || max){
+
+pSalary.textContent=
+
+`₹${min || "—"} - ₹${max || "—"} / year`;
+
+}
+
+else{
+
+pSalary.textContent=
+
+"Salary Not Specified";
+
+}
+
+pDescription.textContent=
+
+desc ||
+
+"Your job description will appear here while you type.";
+
+}
+
+/* Listen to Inputs */
+
+document
+
+.querySelectorAll(
+
+"#title,#company,#location,#job_type,#salary_min,#salary_max,#description"
+
+)
+
+.forEach(input=>{
+
+input.addEventListener(
+
+"input",
+
+updatePreview
+
+);
+
+});
+
+updatePreview();
+
+/* Submit Form */
+
+form.addEventListener(
+
+"submit",
+
+async(e)=>{
+
+e.preventDefault();
+
+alertBox.innerHTML="";
+
+const button=form.querySelector("button");
+
+button.disabled=true;
+
+button.textContent="Publishing...";
+
+const payload={
+
+title:document
+
+.getElementById("title")
+
+.value
+
+.trim(),
+
+company:document
+
+.getElementById("company")
+
+.value
+
+.trim(),
+
+location:document
+
+.getElementById("location")
+
+.value
+
+.trim(),
+
+job_type:document
+
+.getElementById("job_type")
+
+.value,
+
+skills:document
+
+.getElementById("skills")
+
+.value
+
+.trim(),
+
+salary_min:
+
+document
+
+.getElementById("salary_min")
+
+.value || null,
+
+salary_max:
+
+document
+
+.getElementById("salary_max")
+
+.value || null,
+
+description:document
+
+.getElementById("description")
+
+.value
+
+.trim()
+
+};
+
+try{
+
+await apiRequest(
+
+"/jobs",
+
+{
+
+method:"POST",
+
+body:payload
+
+}
+
+);
+
+alertBox.innerHTML=`
+
+<div class="alert alert-success">
+
+✅ Job published successfully!
+
+Redirecting...
+
+</div>
+
+`;
+
+setTimeout(()=>{
+
+window.location.href=
+
+"dashboard-recruiter.html";
+
+},1200);
+
+}
+
+catch(err){
+
+alertBox.innerHTML=`
+
+<div class="alert alert-error">
+
+${err.message}
+
+</div>
+
+`;
+
+}
+
+finally{
+
+button.disabled=false;
+
+button.textContent="Publish Job";
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

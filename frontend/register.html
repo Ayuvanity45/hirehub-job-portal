@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Create Account | HireHub
+
+</title>
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<style>
+
+body{
+
+background:#f8fafc;
+
+}
+
+.register-wrapper{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+min-height:100vh;
+
+}
+
+.left-panel{
+
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+color:white;
+
+padding:70px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+
+.left-panel h1{
+
+font-size:50px;
+
+margin-bottom:20px;
+
+}
+
+.left-panel p{
+
+font-size:18px;
+
+line-height:1.8;
+
+opacity:.95;
+
+}
+
+.benefits{
+
+margin-top:40px;
+
+display:grid;
+
+gap:18px;
+
+}
+
+.benefit{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+font-size:17px;
+
+}
+
+.benefit span{
+
+width:42px;
+
+height:42px;
+
+background:rgba(255,255,255,.2);
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:20px;
+
+}
+
+.right-panel{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:40px;
+
+}
+
+.register-card{
+
+background:white;
+
+padding:45px;
+
+width:100%;
+
+max-width:470px;
+
+border-radius:22px;
+
+box-shadow:0 20px 45px rgba(0,0,0,.08);
+
+}
+
+.register-card h2{
+
+margin:0;
+
+font-size:34px;
+
+color:#0f172a;
+
+}
+
+.register-card p{
+
+color:#64748b;
+
+margin:12px 0 30px;
+
+}
+
+.input-group{
+
+margin-bottom:18px;
+
+}
+
+.input-group label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+}
+
+.input-group input{
+
+width:100%;
+
+padding:14px;
+
+border:1px solid #cbd5e1;
+
+border-radius:12px;
+
+font-size:15px;
+
+}
+
+.role-box{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:12px;
+
+margin-bottom:20px;
+
+}
+
+.role-option{
+
+border:2px solid #cbd5e1;
+
+padding:16px;
+
+border-radius:14px;
+
+cursor:pointer;
+
+text-align:center;
+
+transition:.3s;
+
+font-weight:600;
+
+}
+
+.role-option:hover{
+
+border-color:#2563eb;
+
+background:#eff6ff;
+
+}
+
+.role-option input{
+
+display:none;
+
+}
+
+.role-option.active{
+
+border-color:#2563eb;
+
+background:#dbeafe;
+
+}
+
+.register-btn{
+
+width:100%;
+
+padding:15px;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.register-btn:hover{
+
+background:#1d4ed8;
+
+}
+
+.login-link{
+
+text-align:center;
+
+margin-top:25px;
+
+color:#64748b;
+
+}
+
+.login-link a{
+
+color:#2563eb;
+
+font-weight:600;
+
+text-decoration:none;
+
+}
+
+@media(max-width:900px){
+
+.register-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+.left-panel{
+
+display:none;
+
+}
+
+.right-panel{
+
+padding:25px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<div class="register-wrapper">
+
+<div class="left-panel">
+
+<h1>
+
+Join HireHub 🚀
+
+</h1>
+
+<p>
+
+Build your career or hire talented professionals with India's modern recruitment platform.
+
+</p>
+
+<div class="benefits">
+
+<div class="benefit">
+
+<span>💼</span>
+
+Thousands of Jobs
+
+</div>
+
+<div class="benefit">
+
+<span>🚀</span>
+
+Easy Applications
+
+</div>
+
+<div class="benefit">
+
+<span>📊</span>
+
+Recruiter Dashboard
+
+</div>
+
+<div class="benefit">
+
+<span>🔒</span>
+
+Secure Account
+
+</div>
+
+</div>
+
+</div>
+
+<div class="right-panel">
+
+<div class="register-card">
+
+<h2>
+
+Create Account
+
+</h2>
+
+<p>
+
+Start your HireHub journey today.
+
+</p>
+
+<div id="alert-box"></div>
+
+<form id="register-form">
+
+<label>
+
+Choose Account Type
+
+</label>
+
+<div class="role-box">
+
+<label class="role-option active">
+
+<input
+
+type="radio"
+
+name="role"
+
+value="candidate"
+
+checked>
+
+Candidate
+
+</label>
+
+<label class="role-option">
+
+<input
+
+type="radio"
+
+name="role"
+
+value="recruiter">
+
+Recruiter
+
+</label>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Full Name
+
+</label>
+
+<input
+
+type="text"
+
+id="name"
+
+placeholder="John Doe"
+
+required>
+
+</div>
+
+<div
+
+class="input-group"
+
+id="company-field"
+
+style="display:none;">
+
+<label>
+
+Company Name
+
+</label>
+
+<input
+
+type="text"
+
+id="company_name"
+
+placeholder="Google">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Email
+
+</label>
+
+<input
+
+type="email"
+
+id="email"
+
+placeholder="john@example.com"
+
+required>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Password
+
+</label>
+
+<input
+
+type="password"
+
+id="password"
+
+placeholder="Minimum 6 characters"
+
+minlength="6"
+
+required>
+
+</div>
+
+<button
+
+type="submit"
+
+class="register-btn">
+
+Create Account
+
+</button>
+
+</form>
+
+<div class="login-link">
+
+Already have an account?
+
+<a href="login.html">
+
+Login
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<script src="js/api.js"></script>
+
+<script src="js/auth.js"></script>
+
+<script>
+
+const roleInputs=document.querySelectorAll("input[name='role']");
+
+const roleCards=document.querySelectorAll(".role-option");
+
+const companyField=document.getElementById("company-field");
+
+const form=document.getElementById("register-form");
+
+const alertBox=document.getElementById("alert-box");
+
+
+
+/* Role Selection */
+
+roleInputs.forEach((input,index)=>{
+
+input.addEventListener("change",()=>{
+
+roleCards.forEach(card=>card.classList.remove("active"));
+
+roleCards[index].classList.add("active");
+
+companyField.style.display=
+
+input.value==="recruiter"
+
+&&
+
+input.checked
+
+?
+
+"block"
+
+:
+
+"none";
+
+});
+
+});
+
+
+
+/* Register */
+
+form.addEventListener("submit",async(e)=>{
+
+e.preventDefault();
+
+alertBox.innerHTML="";
+
+
+
+const role=document.querySelector(
+
+"input[name='role']:checked"
+
+).value;
+
+
+
+const payload={
+
+name:document
+
+.getElementById("name")
+
+.value
+
+.trim(),
+
+email:document
+
+.getElementById("email")
+
+.value
+
+.trim(),
+
+password:document
+
+.getElementById("password")
+
+.value,
+
+role,
+
+company_name:document
+
+.getElementById("company_name")
+
+.value
+
+.trim()
+
+};
+
+
+
+const button=form.querySelector("button");
+
+button.disabled=true;
+
+button.textContent="Creating Account...";
+
+
+
+try{
+
+const data=await apiRequest(
+
+"/auth/register",
+
+{
+
+method:"POST",
+
+body:payload
+
+}
+
+);
+
+
+
+localStorage.setItem(
+
+"token",
+
+data.token
+
+);
+
+
+
+localStorage.setItem(
+
+"user",
+
+JSON.stringify(data.user)
+
+);
+
+
+
+alertBox.innerHTML=`
+
+<div class="alert alert-success">
+
+✅ Account created successfully!
+
+Redirecting...
+
+</div>
+
+`;
+
+
+
+setTimeout(()=>{
+
+window.location.href=
+
+role==="recruiter"
+
+?
+
+"dashboard-recruiter.html"
+
+:
+
+"jobs.html";
+
+},1000);
+
+}
+
+catch(err){
+
+alertBox.innerHTML=`
+
+<div class="alert alert-error">
+
+❌ ${err.message}
+
+</div>
+
+`;
+
+}
+
+finally{
+
+button.disabled=false;
+
+button.textContent="Create Account";
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

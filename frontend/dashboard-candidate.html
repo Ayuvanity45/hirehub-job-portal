@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Applications — HireHub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="container">
+      <div class="page-header">
+        <span class="eyebrow">Candidate</span>
+        <h1>My applications</h1>
+        <p>Track the status of every role you've applied to.</p>
+      </div>
+
+      <div id="app-list" class="job-list"></div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    requireAuth("candidate");
+
+    const appList = document.getElementById("app-list");
+
+    function appRowHTML(app) {
+      return `
+        <div class="job-card">
+          <div>
+            <h3><a href="job-detail.html?id=${app.job_id}">${app.job_title}</a></h3>
+            <p class="job-meta">${app.company} • ${app.location}</p>
+            <span class="muted" style="font-size:0.82rem;">Applied ${new Date(app.applied_at).toLocaleDateString()}</span>
+          </div>
+          <div class="job-card-side">
+            <span class="badge badge-${app.status}">${app.status}</span>
+            <a href="${app.resume_path}" target="_blank" class="btn btn-outline btn-sm">View Resume</a>
+          </div>
+        </div>
+      `;
+    }
+
+    async function loadApplications() {
+      try {
+        const apps = await apiRequest("/applications/my");
+        appList.innerHTML = apps.length
+          ? apps.map(appRowHTML).join("")
+          : `<div class="empty-state"><div class="icon">📭</div>You haven't applied to any jobs yet.<br/><a href="jobs.html" class="btn btn-amber mt-16">Browse open jobs</a></div>`;
+      } catch (err) {
+        appList.innerHTML = `<div class="alert alert-error">${err.message}</div>`;
+      }
+    }
+
+    loadApplications();
+  </script>
+</body>
+</html>

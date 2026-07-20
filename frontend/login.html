@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+
+content="width=device-width,
+
+initial-scale=1.0">
+
+<title>
+
+Login | HireHub
+
+</title>
+
+<link rel="stylesheet"
+
+href="css/style.css">
+
+<style>
+
+body{
+
+background:#f8fafc;
+
+}
+
+.login-wrapper{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+min-height:100vh;
+
+}
+
+.login-left{
+
+background:linear-gradient(
+
+135deg,
+
+#2563eb,
+
+#1d4ed8
+
+);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+padding:70px;
+
+color:white;
+
+}
+
+.login-left h1{
+
+font-size:52px;
+
+margin-bottom:20px;
+
+}
+
+.login-left p{
+
+font-size:18px;
+
+line-height:1.8;
+
+opacity:.95;
+
+}
+
+.features{
+
+margin-top:40px;
+
+display:grid;
+
+gap:18px;
+
+}
+
+.feature{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+font-size:17px;
+
+}
+
+.feature span{
+
+width:42px;
+
+height:42px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:rgba(255,255,255,.2);
+
+border-radius:50%;
+
+font-size:22px;
+
+}
+
+.login-right{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:40px;
+
+}
+
+.login-card{
+
+background:white;
+
+padding:45px;
+
+width:100%;
+
+max-width:430px;
+
+border-radius:22px;
+
+box-shadow:
+
+0 20px 45px
+
+rgba(0,0,0,.08);
+
+}
+
+.login-card h2{
+
+font-size:34px;
+
+margin-bottom:10px;
+
+color:#0f172a;
+
+}
+
+.login-card p{
+
+color:#64748b;
+
+margin-bottom:30px;
+
+}
+
+.input-group{
+
+margin-bottom:20px;
+
+}
+
+.input-group label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+}
+
+.input-group input{
+
+width:100%;
+
+padding:15px;
+
+border:1px solid #cbd5e1;
+
+border-radius:12px;
+
+font-size:15px;
+
+}
+
+.password-box{
+
+position:relative;
+
+}
+
+.password-box button{
+
+position:absolute;
+
+right:10px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+border:none;
+
+background:none;
+
+cursor:pointer;
+
+font-size:14px;
+
+color:#2563eb;
+
+font-weight:600;
+
+}
+
+.options{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin:15px 0 25px;
+
+font-size:14px;
+
+}
+
+.options a{
+
+color:#2563eb;
+
+text-decoration:none;
+
+}
+
+.login-btn{
+
+width:100%;
+
+padding:15px;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.login-btn:hover{
+
+background:#1d4ed8;
+
+}
+
+.signup{
+
+text-align:center;
+
+margin-top:25px;
+
+color:#64748b;
+
+}
+
+.signup a{
+
+color:#2563eb;
+
+font-weight:600;
+
+text-decoration:none;
+
+}
+
+@media(max-width:900px){
+
+.login-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+.login-left{
+
+display:none;
+
+}
+
+.login-right{
+
+padding:30px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<div class="login-wrapper">
+
+<div class="login-left">
+
+<h1>
+
+Welcome Back 👋
+
+</h1>
+
+<p>
+
+Access your HireHub account to manage applications, post jobs and connect with top talent.
+
+</p>
+
+<div class="features">
+
+<div class="feature">
+
+<span>💼</span>
+
+Manage Jobs
+
+</div>
+
+<div class="feature">
+
+<span>🚀</span>
+
+Apply Faster
+
+</div>
+
+<div class="feature">
+
+<span>📊</span>
+
+Track Applications
+
+</div>
+
+<div class="feature">
+
+<span>🔒</span>
+
+Secure Login
+
+</div>
+
+</div>
+
+</div>
+
+<div class="login-right">
+
+<div class="login-card">
+
+<h2>
+
+Sign In
+
+</h2>
+
+<p>
+
+Login to continue your journey.
+
+</p>
+
+<div id="alert-box"></div>
+
+<form id="login-form">
+
+<div class="input-group">
+
+<label>
+
+Email
+
+</label>
+
+<input
+
+type="email"
+
+id="email"
+
+placeholder="Enter your email"
+
+required>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Password
+
+</label>
+
+<div class="password-box">
+
+<input
+
+type="password"
+
+id="password"
+
+placeholder="Enter password"
+
+required>
+
+<button
+
+type="button"
+
+id="togglePassword">
+
+Show
+
+</button>
+
+</div>
+
+</div>
+
+<div class="options">
+
+<label>
+
+<input type="checkbox">
+
+Remember Me
+
+</label>
+
+<a href="#">
+
+Forgot Password?
+
+</a>
+
+</div>
+
+<button
+
+type="submit"
+
+class="login-btn">
+
+Login
+
+</button>
+
+</form>
+
+<div class="signup">
+
+Don't have an account?
+
+<a href="register.html">
+
+Create Account
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<script src="js/api.js"></script>
+
+<script src="js/auth.js"></script>
+
+<script>
+
+const loginForm=document.getElementById("login-form");
+
+const alertBox=document.getElementById("alert-box");
+
+const password=document.getElementById("password");
+
+const toggle=document.getElementById("togglePassword");
+
+
+
+/* Show / Hide Password */
+
+toggle.addEventListener("click",()=>{
+
+if(password.type==="password"){
+
+password.type="text";
+
+toggle.textContent="Hide";
+
+}
+
+else{
+
+password.type="password";
+
+toggle.textContent="Show";
+
+}
+
+});
+
+
+
+/* Login */
+
+loginForm.addEventListener("submit",async(e)=>{
+    console.log("Step 1");
+
+e.preventDefault();
+console.log("Step 2");
+alertBox.innerHTML="";
+
+
+
+const payload={
+
+email:document
+
+.getElementById("email")
+
+.value
+
+.trim(),
+
+password:password.value
+
+};
+
+
+
+const button=loginForm.querySelector("button[type='submit']");
+
+button.disabled=true;
+
+button.textContent="Logging in...";
+
+
+
+try{
+    console.log("Step 3");
+
+const data=await apiRequest(
+
+
+"/auth/login",
+
+
+{
+
+method:"POST",
+
+body:payload
+
+}
+
+);
+
+
+
+localStorage.setItem(
+
+"token",
+
+data.token
+
+);
+
+
+
+localStorage.setItem(
+
+"user",
+
+JSON.stringify(data.user)
+
+);
+
+
+
+alertBox.innerHTML=`
+
+<div class="alert alert-success">
+
+✅ Login Successful!
+
+Redirecting...
+
+</div>
+
+`;
+
+
+
+setTimeout(()=>{
+
+window.location.href=
+
+data.user.role==="recruiter"
+
+?
+
+"dashboard-recruiter.html"
+
+:
+
+"jobs.html";
+
+},1000);
+
+}
+
+catch(err){
+
+alertBox.innerHTML=`
+
+<div class="alert alert-error">
+
+❌ ${err.message}
+
+</div>
+
+`;
+
+}
+
+finally{
+
+button.disabled=false;
+
+button.textContent="Login";
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
