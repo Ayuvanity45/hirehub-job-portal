@@ -2,6 +2,8 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
+
+console.log("✅ auth.js loaded");
 const pool = require("../config/db");
 const { authenticateToken } = require("../middleware/auth");
 require("dotenv").config();
@@ -10,6 +12,7 @@ require("dotenv").config();
 // POST /api/auth/register
 // ============================
 router.post("/register", async (req, res) => {
+     console.log("✅ POST /register hit");
   try {
     const { name, email, password, role, company_name } = req.body;
 
