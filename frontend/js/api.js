@@ -1,5 +1,4 @@
-const API_BASE = "https://hirehub-job-portal-d0qu.onrender.com/api/v1";
-
+const API_BASE = "https://hirehub-job-portal-f6p2.onrender.com";
 async function apiRequest(path, { method = "GET", body = null, isFormData = false } = {}) {
   const token = localStorage.getItem("token");
 
