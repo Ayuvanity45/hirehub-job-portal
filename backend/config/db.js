@@ -19,11 +19,15 @@ const pool = mysql.createPool({
 pool
   .getConnection()
   .then((conn) => {
-    console.log("MySQL connected successfully");
+    console.log("✅ MySQL connected successfully");
     conn.release();
   })
   .catch((err) => {
-    console.error("MySQL connection failed:", err.message);
+    console.error("❌ MySQL connection failed");
+    console.error(err);
+    console.error("Message:", err.message);
+    console.error("Code:", err.code);
+    console.error("Stack:", err.stack);
   });
 
 module.exports = pool;
