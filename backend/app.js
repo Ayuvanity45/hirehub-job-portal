@@ -10,6 +10,7 @@ const jobRoutes = require("./routes/jobs");
 const applicationRoutes = require("./routes/applications");
 
 const app = express();
+app.set("trust proxy", 1);
 
 /* ---------------- Security ---------------- */
 
